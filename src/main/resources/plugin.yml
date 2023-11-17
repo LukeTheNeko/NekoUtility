@@ -1,0 +1,53 @@
+name: NekoEssentials
+version: '${version}'
+main: NekoEssentials.Main
+authors: [LukeTheNeko]
+
+commands:
+  echest:
+    description: Abre o enderchest
+    default: false
+    aliases:
+      - ec
+      - enderchest
+
+  fly:
+    description: Description of the fly command
+    default: false
+
+  gm:
+    description: Description of the gm command
+    default: false
+
+  hat:
+    description: Coloca o item na cabeça
+    default: false
+
+  heal:
+    description: Regenera vida
+    default: false
+
+  luz:
+    description: Description of the luz command
+
+  vanish:
+    description: Ficar visível/invisível
+    aliases:
+      - v
+    default: false
+
+permissions:
+  NekoEssentials.admin:
+    default: false
+
+  NekoEssentials.ec:
+    default: false
+
+  NekoEssentials.fly:
+    default: false
+
+  NekoEssentials.heal:
+    default: false
+
+  NekoEssentials.luz:
+    default: false
