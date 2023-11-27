@@ -15,6 +15,10 @@ public final class Main extends JavaPlugin {
 
         System.out.println("&6NekoEssentials Ligado!");
 
+        regCommands();
+    }
+
+    private void regCommands() {
         getCommand("luz").setExecutor(new luz());
         getCommand("fly").setExecutor(new fly());
         getCommand("hat").setExecutor(new hat());
