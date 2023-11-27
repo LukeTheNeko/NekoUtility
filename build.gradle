@@ -49,5 +49,6 @@ processResources {
 
 jar {
     archiveFileName = "NekoEssentials-1.0.0.jar"
+//    destinationDirectory.set(file('C:\\Users\\Gago3\\Desktop\\Server\\1.8\\plugins'))
     destinationDirectory.set(file('C:\\Users\\lucas\\OneDrive\\Desktop\\mine server 1.8.9\\plugins'))
 }
