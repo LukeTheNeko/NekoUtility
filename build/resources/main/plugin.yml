@@ -2,49 +2,56 @@ name: NekoEssentials
 version: '1.0.0'
 main: NekoEssentials.Main
 authors: [LukeTheNeko]
+
 commands:
-  luz:
-    description: Description of the luz command
-  fly:
-    description: Description of the fly command
-    default: false
-  gm:
-    description: Description of the gm command
-    default: false
-  hat:
-    description: Coloca o item na cabeça
-    default: false
-  vanish:
-    description: ficar visivel/invisivel
-    aliases:
-      - v
-    default: false
   echest:
-    description: abre o enderchest
+    description: Abre o enderchest
     default: false
     aliases:
       - ec
       - enderchest
+
+  fly:
+    description: Description of the fly command
+    default: false
+
+  rename:
+    description: Description of the rename command
+    default: false
+
+  gm:
+    description: Description of the gm command
+    default: false
+
+  hat:
+    description: Coloca o item na cabeça
+    default: false
+
   heal:
-    description: regenera vida
+    description: Regenera vida
     default: false
-  tpa:
-    description: a
+
+  luz:
+    description: Description of the luz command
+
+  vanish:
+    description: Ficar visível/invisível
+    aliases:
+      - v
     default: false
-  tpaaceitar:
-    description: a
-    default: false
-  tparecusar:
-    description: a
-    default: false
+
 permissions:
-  NekoEssentials.luz:
-    default: false
-  NekoEssentials.fly:
-    default: false
   NekoEssentials.admin:
     default: false
+
   NekoEssentials.ec:
     default: false
+
+  NekoEssentials.fly:
+    default: false
+
   NekoEssentials.heal:
+    default: false
+
+  NekoEssentials.luz:
     default: false

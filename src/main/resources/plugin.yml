@@ -15,6 +15,10 @@ commands:
     description: Description of the fly command
     default: false
 
+  rename:
+    description: Description of the rename command
+    default: false
+
   gm:
     description: Description of the gm command
     default: false

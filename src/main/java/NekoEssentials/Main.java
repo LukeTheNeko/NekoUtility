@@ -22,6 +22,7 @@ public final class Main extends JavaPlugin {
         getCommand("echest").setExecutor(new echest());
         getCommand("vanish").setExecutor(new vanish());
         getCommand("heal").setExecutor(new heal());
+        getCommand("rename").setExecutor(new rename());
     }
 
     public static String c(String msg) {

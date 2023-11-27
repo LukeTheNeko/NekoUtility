@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/NekoEssentials.main.iml" filepath="$PROJECT_DIR$/.idea/modules/NekoEssentials.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Notz.NekoEssentials.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Notz.NekoEssentials.main.iml" />
     </modules>
   </component>
 </project>
