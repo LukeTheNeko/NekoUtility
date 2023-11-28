@@ -19,6 +19,10 @@ commands:
     description: Description of the rename command
     default: false
 
+  relore:
+    description: Description of the rename command
+    default: false
+
   gm:
     description: Description of the gm command
     default: false
@@ -54,4 +58,10 @@ permissions:
     default: false
 
   NekoEssentials.luz:
+    default: false
+
+  NekoEssentials.rename:
+    default: false
+
+  NekoEssentials.relore:
     default: false

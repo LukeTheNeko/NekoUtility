@@ -1,5 +1,5 @@
 name: NekoEssentials
-version: '1.0.0'
+version: '1.1.0'
 main: NekoEssentials.Main
 authors: [LukeTheNeko]
 
@@ -16,6 +16,10 @@ commands:
     default: false
 
   rename:
+    description: Description of the rename command
+    default: false
+
+  relore:
     description: Description of the rename command
     default: false
 
@@ -54,4 +58,10 @@ permissions:
     default: false
 
   NekoEssentials.luz:
+    default: false
+
+  NekoEssentials.rename:
+    default: false
+
+  NekoEssentials.relore:
     default: false

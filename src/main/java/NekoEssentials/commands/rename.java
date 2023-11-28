@@ -1,51 +1,47 @@
 package NekoEssentials.commands;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static NekoEssentials.Main.c;
+import static NekoEssentials.Main.config;
 
 public class rename implements CommandExecutor {
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player))
-            return false;
+        if (label.equalsIgnoreCase("rename")) {
+            if (sender instanceof Player) {
+                Player player = (Player) sender;
+                if (player.hasPermission("NekoEssentials.rename")) {
+                    if (args.length >= 1) {
+                        ItemStack itemInHand = player.getInventory().getItemInHand();
+                        ItemMeta itemMeta = itemInHand.getItemMeta();
 
-        Player p = (Player) sender;
+                        StringBuilder newName = new StringBuilder();
+                        for (String word : args) {
+                            newName.append(word).append(" ");
+                        }
 
-        if (args.length == 0)
-            p.sendMessage(c("&eUtilize: &f/&erename &f<&ename&f> &f(&elore&f)"));
-        else if (p.getItemInHand() == null)
-                p.sendMessage(c("&cSegure um item válido!"));
-        else {
-            String name = args[0];
+                        newName = new StringBuilder(ChatColor.translateAlternateColorCodes('&', newName.toString().trim()));
 
-            p.setItemInHand(buildItem(p.getItemInHand(), name, Arrays.stream(args).skip(1).collect(Collectors.toList())));
-            p.sendMessage(String.valueOf(Arrays.stream(args).skip(1).collect(Collectors.toList()).size()));
+                        itemMeta.setDisplayName(newName.toString());
+                        itemInHand.setItemMeta(itemMeta);
+
+                        player.sendMessage(c(config.getConfig().getString("rename-success")));
+                    } else {
+                        player.sendMessage(c(config.getConfig().getString("rename-usage")));
+                    }
+                } else {
+                    player.sendMessage(c(config.getConfig().getString("no-permission")));
+                }
+            }
         }
-
-        return true;
-    }
-
-    private ItemStack buildItem(ItemStack item, String name, List<String> lore) {
-        ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(c(name + "&r"));
-        if (lore.size() != 1)
-            lore.replaceAll(s -> c(s + "&r"));
-        else lore = Collections.singletonList(c(lore.get(0) + "&r"));
-        meta.setLore(lore);
-        item.setItemMeta(meta);
-        return item;
+        return false;
     }
 }

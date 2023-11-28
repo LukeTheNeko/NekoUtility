@@ -34,7 +34,7 @@ public class echest implements CommandExecutor {
                 p.openInventory(targetPlayer.getEnderChest());
                 return true;
             } else {
-                p.sendMessage(c("&cO jogador não está online ou não existe."));
+                p.sendMessage(c(config.getConfig().getString("player-error")));
                 return true;
             }
         }
