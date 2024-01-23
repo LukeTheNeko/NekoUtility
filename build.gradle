@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
 }
 
 group = 'Notz'
-version = '1.1.0'
+version = '1.1.1'
 
 repositories {
     mavenCentral()
@@ -19,13 +20,12 @@ repositories {
 
 dependencies {
     compileOnly "org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 def targetJavaVersion = 8
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
     if (JavaVersion.current() < javaVersion) {
         toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     }
@@ -48,7 +48,21 @@ processResources {
 }
 
 jar {
-    archiveFileName = "NekoEssentials-1.1.0.jar"
+//    manifest {
+//        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+//
+//        attributes(
+//                "Implementation-Title": project.name,
+//                "Implementation-Version": project.version,
+//                "Main-Class": "NekoEssentials.Main"
+//        )
+//    }
+//    // This line of code recursively collects and copies all of a project's files
+//    // and adds them to the JAR itself. One can extend this task, to skip certain
+//    // files or particular types at will
+//    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+
+    archiveFileName = "NekoEssentials-1.1.1.jar"
 //    destinationDirectory.set(file('C:\\Users\\Gago3\\Desktop\\Server\\1.8\\plugins'))
     destinationDirectory.set(file('C:\\Users\\lucas\\OneDrive\\Desktop\\mine server 1.8.9\\plugins'))
 }
