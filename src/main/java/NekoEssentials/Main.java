@@ -1,5 +1,8 @@
 package NekoEssentials;
+
 import NekoEssentials.commands.*;
+import NekoEssentials.events.JoinEv;
+import NekoEssentials.events.GrowFarmEv;
 import NekoEssentials.files.ConfigFile;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -21,6 +24,7 @@ public final class Main extends JavaPlugin {
                 "&2v1.1.0 by LukeTheNeko\n" +
                 "&2https://github.com/LukeTheNeko/NekoEssentials\n\n"));
         regCommands();
+        regEvents();
     }
 
     private void regCommands() {
@@ -33,6 +37,11 @@ public final class Main extends JavaPlugin {
         getCommand("heal").setExecutor(new heal());
         getCommand("rename").setExecutor(new rename());
         getCommand("relore").setExecutor(new relore());
+    }
+
+    private void regEvents() {
+        Bukkit.getPluginManager().registerEvents(new GrowFarmEv(), this);
+        Bukkit.getPluginManager().registerEvents(new JoinEv(), this);
     }
 
     public static String c(String msg) {
