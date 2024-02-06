@@ -1,4 +1,4 @@
-# NekoEssentials
+# NekoUtility
 
 | <sub>EN</sub> [English](README.md) | <sub>BR</sub> [Português](br/README_BR.md) | <sub>ES</sub> [Español](es/README_ES.md) |
 |--------------------------------------|--------------------------------------------|------------------------------------------|
@@ -6,15 +6,15 @@
 
 **Permissions:**
 
-- `NekoEssentials.adm.ec`
-- `NekoEssentials.fly`
-- `NekoEssentials.admin`
-- `NekoEssentials.hat`
-- `NekoEssentials.heal`
-- `NekoEssentials.luz`
-- `NekoEssentials.relore`
-- `NekoEssentials.rename`
-- `NekoEssentials.vanish`
+- `NekoUtility.adm.ec`
+- `NekoUtility.fly`
+- `NekoUtility.admin`
+- `NekoUtility.hat`
+- `NekoUtility.heal`
+- `NekoUtility.luz`
+- `NekoUtility.relore`
+- `NekoUtility.rename`
+- `NekoUtility.vanish`
 
 **Commands**
 

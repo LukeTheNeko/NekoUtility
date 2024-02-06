@@ -1,3 +1,7 @@
+###
+###
+### v1.3.0
+
 light-off: "&f[Neko &5Plugins&f] &cVocê apagou a luz!"
 light-on: "&f[Neko &5Plugins&f] &aVocê ligou a luz!"
 fly-on: "&f[Neko &5Plugins&f] &aVocê ligou o fly"
@@ -17,3 +21,8 @@ rename-success: "&f[Neko &5Plugins&f] &aNome do item Renomeado!"
 rename-usage: "&f[Neko &5Plugins&f] &6Use /rename nome!"
 relore-success: "&f[Neko &5Plugins&f] &aLore do item Renomeada!"
 relore-usage: "&f[Neko &5Plugins&f] &6Use /relore nome!"
+item-enchanted: "&f[Neko &5Plugins&f] Item encantado"
+cannot-enchant: "&f[Neko &5Plugins&f] não foi possivel encnatar item"
+cannot-enchant2: "erro2"
+teleported-to-player: "%targetPlayer.name% teleported to player"
+Invalid-location: "Invalid location format."
