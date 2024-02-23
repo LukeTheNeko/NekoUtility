@@ -1,7 +1,6 @@
-package NekoUtility.commands
+package nekoutility.commands
 
-import NekoUtility.Main
-import NekoUtility.Main.Companion.c
+import nekoutility.Main.Companion.send
 import org.bukkit.GameMode
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -15,11 +14,11 @@ class gm : CommandExecutor {
         }
         val player = sender
         if (!player.hasPermission("nekoutility.admin")) {
-            player.sendMessage(c(Main.config!!.getConfig().getString("no-permission")))
+            send(player, "no-permission")
             return false
         }
         if (args.size == 0) {
-            player.sendMessage(c(Main.config!!.getConfig().getString("usecommand")))
+            send(player, "use-command")
             return false
         }
         val modeArg = args[0]
@@ -30,13 +29,12 @@ class gm : CommandExecutor {
             "2" -> GameMode.ADVENTURE
             "3" -> GameMode.SPECTATOR
             else -> {
-                player.sendMessage(c(Main.config!!.getConfig().getString("invalidmode")))
+                send(player, "invalid-mode")
                 return false
             }
         }
         player.gameMode = gameMode
-        val mensagem = Main.config!!.getConfig().getString("gamemode-change").replace("%mode%", gameMode.toString())
-        player.sendMessage(c(mensagem))
+        send(player, "gamemode-change", gameMode.toString())
         return true
     }
 }

@@ -1,4 +1,4 @@
-# NekoUtility
+# nekoutility
 
 | <sub>EN</sub> [English](README.md) | <sub>BR</sub> [Português](br/README_BR.md) | <sub>ES</sub> [Español](es/README_ES.md) |
 |--------------------------------------|--------------------------------------------|------------------------------------------|
@@ -6,15 +6,15 @@
 
 **Permissions:**
 
-- `NekoUtility.adm.ec`
-- `NekoUtility.fly`
-- `NekoUtility.admin`
-- `NekoUtility.hat`
-- `NekoUtility.heal`
-- `NekoUtility.luz`
-- `NekoUtility.relore`
-- `NekoUtility.rename`
-- `NekoUtility.vanish`
+- `nekoutility.adm.ec`
+- `nekoutility.fly`
+- `nekoutility.admin`
+- `nekoutility.hat`
+- `nekoutility.heal`
+- `nekoutility.luz`
+- `nekoutility.relore`
+- `nekoutility.rename`
+- `nekoutility.vanish`
 
 **Commands**
 

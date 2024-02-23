@@ -1,6 +1,6 @@
 name: NekoUtility
 version: '${version}'
-main: NekoUtility.Main
+main: nekoutility.Main
 authors: [LukeTheNeko]
 
 commands:
@@ -50,6 +50,12 @@ commands:
   invsee:
     default: false
 
+  clear:
+    default: false
+
+  speed:
+    default: false
+
 permissions:
   nekoutility.admin:
     default: false
@@ -82,4 +88,10 @@ permissions:
     default: false
 
   nekoutility.invsee:
+    default: false
+
+  nekoutility.clear:
+    default: false
+
+  nekoutility.speed:
     default: false

@@ -1,7 +1,6 @@
-package NekoUtility.commands
+package nekoutility.commands
 
-import NekoUtility.Main
-import NekoUtility.Main.Companion.c
+import nekoutility.Main
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -15,7 +14,7 @@ class echest : CommandExecutor {
         }
         val p = sender
         if (!(p.hasPermission("nekoutility.ec") || p.hasPermission("NekoUtility.adm.ec"))) {
-            p.sendMessage(c(Main.config!!.getConfig().getString("no-permission")))
+            Main.send(p, "no-permission")
             return true
         }
         if (args.size > 0 && p.hasPermission("NekoUtility.adm.ec")) {
@@ -24,7 +23,7 @@ class echest : CommandExecutor {
                 p.openInventory(targetPlayer.enderChest)
                 true
             } else {
-                p.sendMessage(c(Main.config!!.getConfig().getString("player-error")))
+                Main.send(p, "player-error")
                 true
             }
         }

@@ -1,7 +1,6 @@
-package NekoUtility.commands
+package nekoutility.commands
 
-import NekoUtility.Main
-import NekoUtility.Main.Companion.c
+import nekoutility.Main.Companion.send
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -14,10 +13,10 @@ class heal : CommandExecutor {
             if (player.hasPermission("nekoutility.heal")) {
                 player.health = player.maxHealth
                 player.foodLevel = 20
-                player.sendMessage(c(Main.config!!.getConfig().getString("healed")))
+                send(player,"healed")
                 return true
             } else {
-                player.sendMessage(c(Main.config!!.getConfig().getString("no-permission")))
+                send(player,"no-permission")
             }
         }
         return false

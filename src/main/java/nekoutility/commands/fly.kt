@@ -1,7 +1,6 @@
-package NekoUtility.commands
+package nekoutility.commands
 
-import NekoUtility.Main
-import NekoUtility.Main.Companion.c
+import nekoutility.Main.Companion.send
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -14,15 +13,15 @@ class fly : CommandExecutor {
         }
         val p = sender
         if (!p.hasPermission("nekoutility.fly")) {
-            p.sendMessage(c(Main.config!!.getConfig().getString("no-permission")))
+            send(p, "no-permission")
             return true
         }
         if (p.allowFlight) {
             p.allowFlight = false
-            p.sendMessage(c(Main.config!!.getConfig().getString("fly-off")))
+            send(p,"fly-off")
         } else {
             p.allowFlight = true
-            p.sendMessage(c(Main.config!!.getConfig().getString("fly-on")))
+            send(p,"fly-on")
         }
         return true
     }

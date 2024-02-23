@@ -1,6 +1,6 @@
-package NekoUtility.events
+package nekoutility.events
 
-import NekoUtility.Main
+import nekoutility.Main
 import org.bukkit.GameMode
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener

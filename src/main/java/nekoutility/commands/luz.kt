@@ -1,7 +1,6 @@
-package NekoUtility.commands
+package nekoutility.commands
 
-import NekoUtility.Main
-import NekoUtility.Main.Companion.c
+import nekoutility.Main.Companion.send
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -16,14 +15,14 @@ class luz : CommandExecutor {
                 if (player.hasPermission("nekoutility.luz")) {
                     if (player.hasPotionEffect(PotionEffectType.NIGHT_VISION)) {
                         player.removePotionEffect(PotionEffectType.NIGHT_VISION)
-                        player.sendMessage(c(Main.config!!.getConfig().getString("light-off")))
+                        send(player,"light-off")
                         return true
                     }
                     player.addPotionEffect(PotionEffect(PotionEffectType.NIGHT_VISION, Int.MAX_VALUE, 0, false, false))
-                    player.sendMessage(c(Main.config!!.getConfig().getString("light-on")))
+                    send(player,"light-on")
                     return true
                 } else {
-                    player.sendMessage(c(Main.config!!.getConfig().getString("no-permission")))
+                    send(player,"no-permission")
                 }
             }
         return false

@@ -1,7 +1,6 @@
-package NekoUtility.commands
+package nekoutility.commands
 
-import NekoUtility.Main
-import NekoUtility.Main.Companion.c
+import nekoutility.Main.Companion.send
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -27,12 +26,12 @@ class relore : CommandExecutor {
                         itemMeta.lore = loreLines
                     }
                     itemInHand.setItemMeta(itemMeta)
-                    player.sendMessage(c(Main.config!!.getConfig().getString("relore-success")))
+                    send(player,"relore-success")
                 } else {
-                    player.sendMessage(c(Main.config!!.getConfig().getString("relore-usage")))
+                    send(player, "relore-usage")
                 }
             } else {
-                player.sendMessage(c(Main.config!!.getConfig().getString("no-permission")))
+                send(player,"no-permission")
             }
         }
         return false

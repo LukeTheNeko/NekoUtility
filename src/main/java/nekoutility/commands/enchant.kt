@@ -1,7 +1,7 @@
-package NekoUtility.commands
+package nekoutility.commands
 
-import NekoUtility.Main
-import NekoUtility.Main.Companion.c
+import nekoutility.Main
+import nekoutility.Main.Companion.send
 import org.bukkit.Material
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -18,14 +18,14 @@ class enchant : CommandExecutor {
         }
         val p = sender
         if (!p.hasPermission("nekoutility.enchant")) {
-            p.sendMessage(c(Main.config!!.getConfig().getString("no-permission")))
+            send(p, Main.configcu!!.getConfig().getString("no-permission"))
             return true
         }
         when (args.size) {
             2 -> {
                 val itemInHand = p.itemInHand
                 if (itemInHand == null || itemInHand.type == Material.AIR) {
-                    p.sendMessage(c(Main.config!!.getConfig().getString("cannot-enchant")))
+                    send(p, Main.configcu!!.getConfig().getString("cannot-enchant"))
                     return true
                 }
                 val enchantmentName = args[0].lowercase(Locale.getDefault())
@@ -33,9 +33,9 @@ class enchant : CommandExecutor {
                 val enchantment = enchantment(enchantmentName)
                 if (enchantment != null) {
                     p.itemInHand = enchantItem(itemInHand, enchantment, level)
-                    p.sendMessage(c(Main.config!!.getConfig().getString("item-enchanted")))
+                    send(p, "item-enchanted")
                     return true
-                } else p.sendMessage(c(Main.config!!.getConfig().getString("cannot-enchant")))
+                } else send(p, "cannot-enchant")
             }
 
             else -> p.sendMessage(Arrays.stream(Enchantment.values()).toArray().contentToString())
@@ -53,6 +53,7 @@ class enchant : CommandExecutor {
     private fun enchantment(ec: String): Enchantment? {
         return when (ec) {
             "protection" -> Enchantment.PROTECTION_ENVIRONMENTAL
+            "efficiency", "eff" -> Enchantment.DIG_SPEED
             "fireprotection" -> Enchantment.PROTECTION_FIRE
             "featherfalling" -> Enchantment.PROTECTION_FALL
             "blast" -> Enchantment.PROTECTION_EXPLOSIONS
@@ -63,13 +64,13 @@ class enchant : CommandExecutor {
             "depthstrider" -> Enchantment.DEPTH_STRIDER
             "sharpness", "sharp" -> Enchantment.DAMAGE_ALL
             "smite" -> Enchantment.DAMAGE_UNDEAD
-            "ARTHROPODS" -> Enchantment.DAMAGE_ARTHROPODS
-            "knockback" -> Enchantment.KNOCKBACK
+            "arthropods" -> Enchantment.DAMAGE_ARTHROPODS
+            "knockback", "kb" -> Enchantment.KNOCKBACK
             "fireaspect" -> Enchantment.FIRE_ASPECT
             "looting" -> Enchantment.LOOT_BONUS_MOBS
-            "silktouch" -> Enchantment.SILK_TOUCH
-            "unbreaking" -> Enchantment.DURABILITY
-            "fortune" -> Enchantment.LOOT_BONUS_BLOCKS
+            "silktouch", "silk" -> Enchantment.SILK_TOUCH
+            "unbreaking", "unb" -> Enchantment.DURABILITY
+            "fortune", "fort" -> Enchantment.LOOT_BONUS_BLOCKS
             "power" -> Enchantment.ARROW_DAMAGE
             "punch" -> Enchantment.ARROW_KNOCKBACK
             "fire" -> Enchantment.ARROW_FIRE

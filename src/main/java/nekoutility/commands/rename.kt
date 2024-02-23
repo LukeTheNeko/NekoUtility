@@ -1,7 +1,6 @@
-package NekoUtility.commands
+package nekoutility.commands
 
-import NekoUtility.Main
-import NekoUtility.Main.Companion.c
+import nekoutility.Main.Companion.send
 import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -23,12 +22,12 @@ class rename : CommandExecutor {
                     newName = StringBuilder(ChatColor.translateAlternateColorCodes('&', newName.toString().trim { it <= ' ' }))
                     itemMeta.displayName = newName.toString()
                     itemInHand.setItemMeta(itemMeta)
-                    player.sendMessage(c(Main.config!!.getConfig().getString("rename-success")))
+                    send(player,"rename-success")
                 } else {
-                    player.sendMessage(c(Main.config!!.getConfig().getString("rename-usage")))
+                    send(player,"rename-usage")
                 }
             } else {
-                player.sendMessage(c(Main.config!!.getConfig().getString("no-permission")))
+                send(player,"no-permission")
             }
         }
 

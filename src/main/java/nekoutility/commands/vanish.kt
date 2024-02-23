@@ -1,7 +1,6 @@
-package NekoUtility.commands
+package nekoutility.commands
 
-import NekoUtility.Main
-import NekoUtility.Main.Companion.c
+import nekoutility.Main.Companion.send
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -19,17 +18,17 @@ class vanish : CommandExecutor {
                             onlinePlayer.showPlayer(player)
                         }
                         vanishedPlayers.remove(player)
-                        player.sendMessage(c(Main.config!!.getConfig().getString("vanish-off")))
+                        send(player, "vanish-off")
                     } else {
                         for (onlinePlayer in Bukkit.getOnlinePlayers()) {
                             onlinePlayer.hidePlayer(player)
                         }
                         vanishedPlayers.add(player)
-                        player.sendMessage(c(Main.config!!.getConfig().getString("vanish-on")))
+                        send(player,"vanish-on")
                     }
                     true
                 } else {
-                    player.sendMessage(c(Main.config!!.getConfig().getString("no-permission")))
+                    send(player,"no-permission")
                     true
                 }
             }

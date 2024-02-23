@@ -1,17 +1,21 @@
-package NekoUtility
+package nekoutility
 
-import NekoUtility.commands.*
-import NekoUtility.events.GrowFarmEv
-import NekoUtility.events.JoinEv
-import NekoUtility.files.ConfigFile
+import nekoutility.commands.*
+import nekoutility.events.GrowFarmEv
+import nekoutility.events.JoinEv
+import nekoutility.files.ConfigFile
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
+import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 
 class Main : JavaPlugin() {
     override fun onEnable() {
         plugin = this
-        Companion.config = ConfigFile(this, "messages")
+        configcu = ConfigFile(this, "messages")
+        prefix = configcu.getConfig().getString("preffix")
+
+
         Bukkit.getConsoleSender().sendMessage(c("""
     &f[Neko&5Utility&f] &aStarted successfully.
     &F╔╗╔╔═╗╦╔═╔═╗&5╦ ╦╔╦╗╦╦  ╦╔╦╗╦ ╦
@@ -38,6 +42,8 @@ class Main : JavaPlugin() {
         getCommand("enchant").executor = enchant()
         getCommand("tp").executor = tp()
         getCommand("invsee").executor = invsee()
+        getCommand("clear").executor = clear()
+        getCommand("speed").executor = speed()
     }
 
     private fun regEvents() {
@@ -46,13 +52,20 @@ class Main : JavaPlugin() {
     }
 
     companion object {
-        @JvmField
-        var plugin: Main? = null
-        @JvmField
-        var config: ConfigFile? = null
-        @JvmStatic
-        fun c(msg: String?): String {
+        lateinit var plugin: Main
+        lateinit var configcu: ConfigFile
+        fun send(p: Player, path: String) {
+            p.sendMessage(c(prefix + configcu.getConfig().getString(path) ))
+        }
+        fun send(p: Player, path: String, arg0: String ) {
+            p.sendMessage(c(prefix + configcu.getConfig().getString(path).replace("{arg0}",arg0) ))
+        }
+        fun send(p: Player, path: String, arg0: String, arg1: String ) {
+            p.sendMessage(c(prefix + configcu.getConfig().getString(path).replace("{arg0}",arg0).replace("{arg1}",arg1) ))
+        }
+        fun c(msg: String): String {
             return ChatColor.translateAlternateColorCodes('&', msg)
         }
+        lateinit var prefix: String
     }
 }

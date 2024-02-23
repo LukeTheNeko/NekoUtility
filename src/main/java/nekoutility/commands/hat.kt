@@ -1,7 +1,6 @@
-package NekoUtility.commands
+package nekoutility.commands
 
-import NekoUtility.Main
-import NekoUtility.Main.Companion.c
+import nekoutility.Main.Companion.send
 import org.bukkit.Material
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -15,12 +14,12 @@ class hat : CommandExecutor {
         }
         val player = sender
         if (!player.hasPermission("nekoutility.hat")) {
-            player.sendMessage(c(Main.config!!.getConfig().getString("no-permission")))
+            send(player, "no-permission")
             return true
         }
         val heldItem = player.inventory.itemInHand
         if (heldItem == null || heldItem.type == Material.AIR) {
-            player.sendMessage(c(Main.config!!.getConfig().getString("hat-no-item")))
+            send(player, "hat-no-item")
             return true
         }
         player.inventory.itemInHand = null
@@ -29,7 +28,7 @@ class hat : CommandExecutor {
         if (helmet != null) {
             player.inventory.addItem(helmet)
         }
-        player.sendMessage(c(Main.config!!.getConfig().getString("hat-success")))
+        send(player, "hat-success")
         return true
     }
 }
