@@ -1,6 +1,5 @@
 package nekoutility.commands
 
-import nekoutility.Main
 import nekoutility.Main.Companion.send
 import org.bukkit.Material
 import org.bukkit.command.Command
@@ -18,14 +17,14 @@ class enchant : CommandExecutor {
         }
         val p = sender
         if (!p.hasPermission("nekoutility.enchant")) {
-            send(p, Main.configcu!!.getConfig().getString("no-permission"))
+            send(p,"no-permission")
             return true
         }
         when (args.size) {
             2 -> {
                 val itemInHand = p.itemInHand
                 if (itemInHand == null || itemInHand.type == Material.AIR) {
-                    send(p, Main.configcu!!.getConfig().getString("cannot-enchant"))
+                    send(p,"cannot-enchant")
                     return true
                 }
                 val enchantmentName = args[0].lowercase(Locale.getDefault())
@@ -66,15 +65,15 @@ class enchant : CommandExecutor {
             "smite" -> Enchantment.DAMAGE_UNDEAD
             "arthropods" -> Enchantment.DAMAGE_ARTHROPODS
             "knockback", "kb" -> Enchantment.KNOCKBACK
-            "fireaspect" -> Enchantment.FIRE_ASPECT
+            "fireaspect", "fire" -> Enchantment.FIRE_ASPECT
             "looting" -> Enchantment.LOOT_BONUS_MOBS
             "silktouch", "silk" -> Enchantment.SILK_TOUCH
             "unbreaking", "unb" -> Enchantment.DURABILITY
             "fortune", "fort" -> Enchantment.LOOT_BONUS_BLOCKS
             "power" -> Enchantment.ARROW_DAMAGE
             "punch" -> Enchantment.ARROW_KNOCKBACK
-            "fire" -> Enchantment.ARROW_FIRE
-            "infinite" -> Enchantment.ARROW_INFINITE
+            "falme" -> Enchantment.ARROW_FIRE
+            "infinite", "inf" -> Enchantment.ARROW_INFINITE
             "luck" -> Enchantment.LUCK
             "lure" -> Enchantment.LURE
             else -> null

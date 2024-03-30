@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'Notz'
-version = '1.2.1'
+version = '1.3.2'
 
 repositories {
     mavenCentral()
@@ -24,20 +24,7 @@ dependencies {
 }
 
 jar {
-    manifest {
-        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
-        attributes(
-                "Implementation-Title": project.name,
-                "Implementation-Version": project.version,
-                "Main-Class": "testeKotlin.Main"
-        )
-    }
-
-    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-
-    archiveFileName = "NekoUtility-1.3.0.jar"
-    destinationDirectory.set(file('C:\\Users\\lucas\\OneDrive\\Desktop'))
+    archiveFileName = "NekoUtility-1.3.2.jar"
 }
 
 def targetJavaVersion = 8

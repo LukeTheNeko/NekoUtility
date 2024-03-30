@@ -1,7 +1,7 @@
 package nekoutility.commands
 
+import nekoutility.Main.Companion.c
 import nekoutility.Main.Companion.send
-import org.bukkit.ChatColor
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -13,23 +13,16 @@ class relore : CommandExecutor {
             val player = sender
             if (player.hasPermission("nekoutility.relore")) {
                 if (args.size >= 1) {
-                    val itemInHand = player.itemInHand
-                    val itemMeta = itemInHand.itemMeta
-                    val loreLines: MutableList<String> = ArrayList()
-                    for (loreLine in args) {
-                        loreLines.add(ChatColor.translateAlternateColorCodes('&', loreLine))
-                    }
-                    if (itemMeta.hasLore()) {
-                        itemMeta.lore.clear()
-                        itemMeta.lore.addAll(loreLines)
-                    } else {
-                        itemMeta.lore = loreLines
-                    }
-                    itemInHand.setItemMeta(itemMeta)
+                    val item = player.itemInHand
+                    val meta = item.itemMeta
+
+                    meta.lore = c(args.joinToString(prefix = "", postfix = "", separator = " ")).split("\\").toMutableList()
+
+                    item.setItemMeta(meta)
+
                     send(player,"relore-success")
-                } else {
-                    send(player, "relore-usage")
-                }
+
+                } else send(player, "relore-usage")
             } else {
                 send(player,"no-permission")
             }

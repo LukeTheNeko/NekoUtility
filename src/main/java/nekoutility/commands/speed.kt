@@ -39,7 +39,7 @@ class speed : CommandExecutor {
                     send(player, "invalid-speed-mode")
                 }
             } else {
-                send(player, "incorrect-usage")
+                send(player, "fly-usage")
             }
         }
         return false

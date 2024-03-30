@@ -15,13 +15,12 @@ class Main : JavaPlugin() {
         configcu = ConfigFile(this, "messages")
         prefix = configcu.getConfig().getString("preffix")
 
-
         Bukkit.getConsoleSender().sendMessage(c("""
     &f[Neko&5Utility&f] &aStarted successfully.
     &F╔╗╔╔═╗╦╔═╔═╗&5╦ ╦╔╦╗╦╦  ╦╔╦╗╦ ╦
     &F║║║║╣ ╠╩╗║ ║&5║ ║ ║ ║║  ║ ║ ╚╦╝
     &F╝╚╝╚═╝╩ ╩╚═╝&5╚═╝ ╩ ╩╩═╝╩ ╩  ╩ 
-    &2v1.3.0 by LukeTheNeko
+    &2v1.3.2 by LukeTheNeko
     &2https://github.com/LukeTheNeko/NekoUtility
     
     """.trimIndent()))

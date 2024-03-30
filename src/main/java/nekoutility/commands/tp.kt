@@ -19,8 +19,6 @@ class tp : CommandExecutor {
                     if (Bukkit.getPlayer(args[0]) != null) {
                         p.teleport(Bukkit.getPlayer(args[0]))
                         send(p, "tp-for", args[0])
-                        if (Bukkit.getPlayer(args[0]).hasPermission("nekoutility.admin"))
-                            send(Bukkit.getPlayer(args[0]), "player-tp-you", args[0])
                     } else send(p, "player-error")
                 }
 

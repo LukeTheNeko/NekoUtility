@@ -1,5 +1,5 @@
 name: NekoUtility
-version: '${version}'
+version: '1.3.2'
 main: nekoutility.Main
 authors: [LukeTheNeko]
 
@@ -9,10 +9,10 @@ commands:
     aliases:
       - ec
       - enderchest
-      - echest
 
   fly:
     default: false
+    aliases:
       - voar
 
   tp:
@@ -43,9 +43,9 @@ commands:
       - encantar
 
   vanish:
+    default: false
     aliases:
       - v
-    default: false
 
   invsee:
     default: false
@@ -92,6 +92,9 @@ permissions:
 
   nekoutility.clear:
     default: false
+
+  inventory-cleared-others:
+    default: true
 
   nekoutility.speed:
     default: false

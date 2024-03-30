@@ -1,6 +1,7 @@
 package nekoutility.commands
 
 import nekoutility.Main.Companion.send
+import org.bukkit.Bukkit
 import org.bukkit.GameMode
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -17,11 +18,16 @@ class gm : CommandExecutor {
             send(player, "no-permission")
             return false
         }
-        if (args.size == 0) {
-            send(player, "use-command")
+
+        val modeArg = args.firstOrNull { it.matches("\\d".toRegex()) } ?: return false
+        val targetPlayerName = args.firstOrNull { !it.matches("\\d".toRegex()) } ?: player.name
+        val targetPlayer = Bukkit.getPlayer(targetPlayerName)
+
+        if (targetPlayer == null || !targetPlayer.isOnline) {
+            send(player, "player-not-found", targetPlayerName)
             return false
         }
-        val modeArg = args[0]
+
         val gameMode: GameMode
         gameMode = when (modeArg) {
             "0" -> GameMode.SURVIVAL
@@ -33,8 +39,13 @@ class gm : CommandExecutor {
                 return false
             }
         }
-        player.gameMode = gameMode
-        send(player, "gamemode-change", gameMode.toString())
+        targetPlayer.gameMode = gameMode
+        if (targetPlayer == player) {
+            send(player, "gamemode-change", gameMode.toString())
+        } else {
+            send(player, "gamemode-change-other", targetPlayerName, gameMode.toString())
+            send(targetPlayer, "gamemode-change", gameMode.toString())
+        }
         return true
     }
 }

@@ -15,7 +15,7 @@ class JoinEv : Listener {
                 override fun run() {
                     e.player.gameMode = GameMode.CREATIVE
                     e.player.isFlying = true
-                    e.player.flySpeed = 1.0F
+                    e.player.flySpeed = 0.5F
                 }
             }.runTaskLater(Main.plugin, 3)
         }
